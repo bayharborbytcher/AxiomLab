@@ -1,0 +1,17 @@
+{
+ "name": "SR latch",
+ "description": "Set and reset: remembers one bit.",
+ "gates": {
+  "S": ["INPUT", -300, -60],
+  "R": ["INPUT", -300, 100],
+  "L": ["SR_LATCH", 0, -40],
+  "Q": ["OUTPUT", 240, -100],
+  "NQ": ["OUTPUT", 240, 100]
+ },
+ "wires": [
+  ["S", 0, "L", 0],
+  ["R", 0, "L", 1],
+  ["L", 0, "Q", 0],
+  ["L", 1, "NQ", 0]
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "name": "D flip-flop",
+ "description": "Captures D on each rising clock edge.",
+ "gates": {
+  "D": ["INPUT", -300, -60],
+  "CLK": ["CLOCK", -300, 100, 1],
+  "F": ["D_FF", 0, -40],
+  "Q": ["OUTPUT", 240, -100],
+  "NQ": ["OUTPUT", 240, 100]
+ },
+ "wires": [
+  ["D", 0, "F", 0],
+  ["CLK", 0, "F", 1],
+  ["F", 0, "Q", 0],
+  ["F", 1, "NQ", 0]
+ ]
+}

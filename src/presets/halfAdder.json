@@ -1,0 +1,20 @@
+{
+ "name": "Half adder",
+ "description": "Adds two bits: sum and carry.",
+ "gates": {
+  "A": ["INPUT", -260, -120],
+  "B": ["INPUT", -220, 40],
+  "XOR": ["XOR", 40, -100],
+  "AND": ["AND", 40, 80],
+  "S": ["OUTPUT", 260, -100],
+  "C": ["OUTPUT", 260, 80]
+ },
+ "wires": [
+  ["A", 0, "XOR", 0],
+  ["B", 0, "XOR", 1],
+  ["A", 0, "AND", 0],
+  ["B", 0, "AND", 1],
+  ["XOR", 0, "S", 0],
+  ["AND", 0, "C", 0]
+ ]
+}
