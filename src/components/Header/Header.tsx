@@ -4,7 +4,7 @@ import { IconButton } from '../shared/IconButton';
 import { ModeToggle } from './ModeToggle';
 import { Toolbar } from './Toolbar';
 
-const GITHUB_URL = 'https://github.com/bayharborbytcher';
+const GITHUB_URL = 'https://github.com/bayharborbytcher/AxiomLab';
 
 export function Header() {
   const sidebarOpen = useUIStore((s) => s.sidebarOpen);
