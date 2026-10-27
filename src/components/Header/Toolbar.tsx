@@ -25,8 +25,8 @@ function DialogButton({ children, onClick, danger, autoFocus }: DialogButtonProp
       whileTap={{ scale: 0.94 }}
       transition={pressSpring}
       className={
-        'h-10 rounded-full px-5 text-sm font-semibold transition-colors ' +
-        (danger ? 'bg-pin-out/20 text-pin-out hover:bg-pin-out/30' : 'glass text-fg')
+        'glass h-10 w-full rounded-full px-5 text-sm font-semibold transition-colors ' +
+          (danger ? 'bg-[#ff453a]/25 text-[#ff453a] hover:bg-[#ff453a]/32' : 'text-fg')
       }
     >
       {children}
@@ -126,7 +126,7 @@ export function Toolbar() {
         <p className="mb-0 mt-2 text-sm leading-relaxed text-fg/70">
           This removes {gateCount} {gateCount === 1 ? 'gate' : 'gates'} and {wireCount} {wireCount === 1 ? 'wire' : 'wires'}. You can undo it with Ctrl Z.
         </p>
-        <div className="mt-5 flex justify-end gap-2">
+        <div className="mt-5 grid grid-cols-2 gap-2">
           <DialogButton autoFocus onClick={() => setConfirming(false)}>Cancel</DialogButton>
           <DialogButton danger onClick={clearAll}>Clear canvas</DialogButton>
         </div>

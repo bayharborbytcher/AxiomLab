@@ -3,6 +3,7 @@ import { GitHubIcon } from '../shared/icons';
 import { IconButton } from '../shared/IconButton';
 import { ModeToggle } from './ModeToggle';
 import { Toolbar } from './Toolbar';
+import { Wordmark } from '../shared/Wordmark';
 
 const GITHUB_URL = 'https://github.com/bayharborbytcher/AxiomLab';
 
@@ -14,9 +15,9 @@ export function Header() {
 
   return (
     <header className="flex h-17 shrink-0 items-center gap-6 border-b border-border bg-surface px-4">
-      <h1 className="m-0 whitespace-nowrap font-display text-[30px] font-black leading-none tracking-[0.01em] font-stretch-expanded">
-        AxiomLAB
-      </h1>
+      <h1 className="m-0 flex items-center">
+        <Wordmark variant="line" className="h-[22px] w-auto text-fg" />
+          </h1>
 
       <div className="flex min-w-0 flex-1 items-center justify-end gap-4">
         <Toolbar />
