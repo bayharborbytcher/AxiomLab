@@ -1,13 +1,18 @@
 <div align="center">
 
-# AxiomLab
+<h1>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/axiomlab-wordmark-dark.svg">
+    <img src="docs/axiomlab-wordmark-light.svg" alt="AxiomLab" height="88">
+  </picture>
+</h1>
 
 ### Build logic. Watch it come alive.
 
 A digital logic simulator that runs entirely in your browser.<br/>
 Drag gates onto a canvas, wire them together, and watch every signal travel.
 
-**[Open the live demo](https://bhbaxiomlab.vercel.app/)**&nbsp;&nbsp;·&nbsp;&nbsp;[Report a bug](https://github.com/bayharborbytcher/AxiomLab/issues)&nbsp;&nbsp;·&nbsp;&nbsp;[Request a feature](https://github.com/bayharborbytcher/AxiomLab/issues)
+**[Open the live demo](https://bhbaxiomlab.vercel.app/)**&nbsp;&nbsp;·&nbsp;&nbsp;[Report a bug](https://github.com/bayharborbytcher/AxiomLab/issues/new?labels=bug)&nbsp;&nbsp;·&nbsp;&nbsp;[Request a feature](https://github.com/bayharborbytcher/AxiomLab/issues/new?labels=enhancement)
 
 <br/>
 
@@ -18,7 +23,7 @@ Drag gates onto a canvas, wire them together, and watch every signal travel.
 ![Zustand](https://img.shields.io/badge/Zustand-433E38?style=flat-square)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white)
 ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
 ![Stars](https://img.shields.io/github/stars/bayharborbytcher/AxiomLab?style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/bayharborbytcher/AxiomLab?style=flat-square)
@@ -27,7 +32,7 @@ Drag gates onto a canvas, wire them together, and watch every signal travel.
 
 <!--
   Add a screenshot or a short screen recording here. It is the single best thing you can do for this page.
-  Put the file in a /docs folder, then uncomment:
+  A full-window capture of the full adder running in Operate mode works well. Save it as docs/hero.png, then uncomment:
 
   <p align="center"><img src="docs/hero.png" alt="AxiomLab: a full adder running on the canvas" width="920" /></p>
 -->
@@ -38,7 +43,7 @@ Drag gates onto a canvas, wire them together, and watch every signal travel.
 
 Most logic simulators feel like lab software. **AxiomLab is built to feel like a native Apple app** (calm, glassy and springy) while being a real simulator underneath.
 
-Place AND, OR, XOR and friends on an infinite-feeling canvas. Wire them with clean right-angled lines. Flip a switch and watch a pulse of light race down the wire, through the gates, and into the output. Run a clock and watch a flip-flop count. Then open the truth table and see AxiomLab work out the **simplest Boolean expression** for your circuit on its own.
+Place AND, OR, XOR and friends on a large, free-panning canvas. Wire them with clean right-angled lines. Flip a switch and watch a pulse of light race down the wire, through the gates, and into the output. Run a clock and watch a flip-flop count. Then open the truth table and see AxiomLab work out the **simplest Boolean expression** for your circuit on its own.
 
 It is made for students learning digital electronics, teachers who want something better than a whiteboard, and anyone who simply enjoys watching logic work.
 
@@ -100,7 +105,7 @@ Select any gate and an info card appears at the top right of the canvas describi
 <br/>
 
 - Drag from any pin to another, or click a pin and then click the target. Wires route themselves with right angles and rounded corners, and re-route as you move gates.
-- Each input accepts one wire. Outputs can fan out to as many inputs as you like.
+- Each input accepts one wire, and connecting to an input that already has one replaces it. Outputs can fan out to as many inputs as you like.
 - Every wire gets its own colour from a palette of 12, chosen to stay readable on a dark canvas, so crossing wires never blur together.
 
 | What you see | What it means |
@@ -130,7 +135,7 @@ Select any gate and an info card appears at the top right of the canvas describi
 <br/>
 
 - Up to **4 inputs**, the table builds itself and follows the circuit live. From **5 to 8 inputs** (up to 256 rows) you generate it on request.
-- Inputs are named `A`, `B`, `C`… and outputs `Y` from top to bottom on the canvas. The same names appear above each switch and readout.
+- Inputs are named `A`, `B`, `C`… and outputs `Y` (`Y1`, `Y2`… when there are several) from top to bottom on the canvas. The same names appear above each switch and readout.
 - The row matching your switches is highlighted. Click any row to set the switches to that combination.
 - A **simplified sum-of-products expression** is derived for every output, with overbars for complemented variables.
 - Copy the table to your clipboard (spreadsheet-ready) or download it as CSV.
@@ -160,11 +165,12 @@ Select any gate and an info card appears at the top right of the canvas describi
 AxiomLab follows Apple's Human Interface Guidelines and the Liquid Glass design language, brought to the web.
 
 - **Liquid Glass controls.** Translucent, blurred capsules with a bright top edge float above the canvas. Related actions share one glass group, and glass is never stacked on glass.
-- **Springs, not tweens.** Every transition uses critically damped springs, so motion starts gently, never bounces, and can be interrupted at any moment. The sidebar, panels, mode switch, zoom, and even the camera all use the same physics.
+- **Springs, not tweens.** Motion runs on critically damped springs wherever it matters, so it starts gently, never bounces, and can be interrupted at any moment. The sidebar, panels, mode switch, zoom, the camera and the truth-table pointer all share the same physics.
+- **Motion with meaning.** Switching to Operate sends a soft shadow rising up the gate palette, and switching back lets it drain away. In the truth table, a pointer glides to the row your switches match, and new rows blur into place when you add an input.
 - **Direct manipulation.** Buttons respond the instant you press them. Dragged gates track your pointer one to one.
 - **Type.** The interface uses the Apple system font stack, which is SF Pro on Apple devices and Inter everywhere else.
 - **Accessibility.** Every icon button has a label and a tooltip. Reduced-motion and reduced-transparency preferences are respected. Focus is visible.
-- **A loading page with character.** An animated orb, messages that change in step with it, and a handoff where your GitHub avatar rides the curtain up into the header.
+- **A loading page with character.** An animated orb, status messages that change as the app starts up, and a handoff where the author's GitHub avatar rides the curtain up into the header.
 
 ---
 
@@ -282,7 +288,7 @@ On a Mac, use <kbd>Cmd</kbd> in place of <kbd>Ctrl</kbd>.
 
 ## Getting started
 
-You need **Node.js 20.19 or newer** (22 LTS recommended).
+You need **Node.js 20.19+ or 22.12+** (the current LTS is a safe choice).
 
 ```bash
 # 1. Clone
@@ -312,7 +318,7 @@ The logic engine is pure TypeScript with no DOM, so it is tested headlessly. The
 
 ### Deploying
 
-AxiomLab is a static site, so any static host works. The project builds with a relative base path, so it works from a domain root (Vercel, Netlify, Cloudflare Pages) and from a sub-path (GitHub Pages) without changes. On Vercel, import the repo and click **Deploy**. The Vite settings are detected automatically.
+AxiomLab is a static site, so any static host works. The project builds with a relative base path, so it works from a domain root (Vercel, Netlify, Cloudflare Pages) and from a sub-path (GitHub Pages) without changes. The live demo runs on Vercel: import the repo and click **Deploy**, and the Vite settings are detected automatically.
 
 ---
 
@@ -352,7 +358,7 @@ Released under the **MIT License**. See [`LICENSE`](LICENSE).
 - The loading-page orb is **[thinking-orbs](https://libraries.dev/orbs)** by Jakub Antalik.
 - Motion by **[Framer Motion](https://motion.dev/)**, smooth scrolling by **[Lenis](https://lenis.darkroom.engineering/)**, state by **[Zustand](https://zustand.docs.pmnd.rs/)**.
 - Fallback typeface: **[Inter](https://rsms.me/inter/)** by Rasmus Andersson.
-- Design inspiration from Apple's [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/). AxiomLab is an independent project and is not affiliated with or endorsed by Apple Inc. Apple, SF Pro and SF Symbols are trademarks of Apple Inc.
+- Design inspiration from Apple's [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/). AxiomLab is an independent project and is not affiliated with or endorsed by Apple Inc. Apple and SF Pro are trademarks of Apple Inc.
 
 <div align="center">
 
